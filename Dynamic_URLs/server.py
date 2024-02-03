@@ -1,6 +1,26 @@
 from flask import Flask, make_response, request
 app = Flask(__name__)
 
+@app.route("/")
+def index():
+    return "hello world"
+
+@app.route("/no_content")
+def no_content():
+    """return 'No content found' with a status of 204
+
+    Returns:
+        string: No content found
+        status code: 204
+    """
+    return ({"message":"No Content Found"}, 204)
+
+@app.route("/exp")
+def index_explicit():
+    resp = make_response({"message":"Hello IDE"})
+    resp.status_code = 200
+    return resp
+
 data = [
     {
         "id": "3b58aade-8415-49dd-88db-8d7bce14932a",
@@ -62,31 +82,71 @@ data = [
 @app.route("/data")
 def get_data():
     try:
-        if data and len(data) > 0:
+        if data and len(data) >0:
             return {"message": f"Data of length {len(data)} found"}
         else:
-            return {"message": "Data is empty"}, 500
+            return {"message": "Data is Empty"}, 500
     except NameError:
-        return {"message": "Data not found"}, 404
+        return {"message": "Data not Found"}, 404
+    
+
+@app.route("/name_search")
+def name_search():
+    """find a person in the database
+
+    Returns:
+        json: person if found, with status of 200
+        404: if not found
+        422: if argument q is missing
+    """
+    query = request.args.get("q")
+
+    if not query:
+        return {"message":"Invalid Input Parameter"}, 422
+
+    # this code goes through data and looks for the first_name
+    for person in data:
+        if query.lower() in person["first_name"].lower():
+            return person
+
+    return ({"message": "Person not found"}, 404)
 
 @app.route("/count")
 def count():
     try:
-        return {"data count": len(data)}, 200
+        return({"data count": len(data)},200)
     except NameError:
-        return {"message": "data not defined"}, 500
+        return ({"message": "data not defined"}, 500)
 
 @app.route("/person/<uuid:id>")
 def find_by_uuid(id):
     for person in data:
-        if person["id"] == str(id):
+        if person ['id'] == str(id):
             return person
-    return {"message": "person not found"}, 404
+    return{"message": "person not found"}, 404
 
 @app.route("/person/<uuid:id>", methods=['DELETE'])
 def delete_by_uuid(id):
     for person in data:
         if person["id"] == str(id):
             data.remove(person)
-            return {"message": f"Person with ID {id} deleted"}, 200
+            return {"message":f"{id}"}, 200
     return {"message": "person not found"}, 404
+
+
+@app.route("/person", methods=['POST'])
+def add_by_uuid():
+    new_person = request.json
+    if not new_person:
+        return {"message": "Invalid input parameter"}, 422
+    # code to validate new_person
+    try:
+        data.append(new_person)
+    except NameError:
+        return {"message": "data not defined"}, 500
+    return {"message": f"{new_person['id']}"}, 200
+
+
+@app.errorhandler(404)
+def api_not_found(error):
+    return {"message": "API not found"}, 404
