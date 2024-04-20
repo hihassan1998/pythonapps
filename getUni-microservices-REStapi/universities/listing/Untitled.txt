@@ -1,0 +1,9 @@
+https://listing.1g0cfvya2d59.us-south.codeengine.appdomain.cloud  
+
+curl https://listing.1g0cfvya2d59.us-south.codeengine.appdomain.cloud  /colleges/Trinity
+
+https://websites.1g0cfvya2d59.us-south.codeengine.appdomain.cloud
+
+curl https://websites.1g0cfvya2d59.us-south.codeengine.appdomain.cloud/websites/Trinity%20College%20of%20Music
+
+
