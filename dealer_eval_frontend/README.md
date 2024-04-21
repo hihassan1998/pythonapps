@@ -23,3 +23,7 @@ https://dealerdetails.1g1kteeyhg45.us-south.codeengine.appdomain.cloud
 ### builddirected to local html CMD
 
 ibmcloud ce application create --name frontend2 --image us.icr.io/${SN_ICR_NAMESPACE}/frontend --registry-secret icr-secret --port 5001 --build-source .
+
+## Visual Overview
+![product_all_dealers_prices](https://github.com/hihassan1998/pythonapps/assets/150392365/df2b6ed8-d813-49eb-b110-66ee2e302f95)
+
