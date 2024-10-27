@@ -1,0 +1,6 @@
+888: Words: 13, Characters: 56, Errors: {'H': 1, 'e': 1, 'l': 2, 'm': 1, 's': 1, 'n': 1, 'a': 1}
+999: Words: 13, Characters: 56, Errors: {'H': 1, 'e': 1, 'l': 2, 'm': 1, 's': 1, 'n': 1, 'a': 1}
+689: Ordprecision: 30.77%, Teckenprecision: 0.00%
+555: Ordprecision: 30.77%, Teckenprecision: 0.00%
+456: Ordprecision: 30.77%, Teckenprecision: 0.00%
+556: Ordprecision: 30.77%, Teckenprecision: 0.00%

@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-main function to run the 82-Game chatbot
+main.py file for main funtion to run the the 82-Game chatbot
 """
-
-
+from pathlib import Path
 import typing_test
 
-
 def main():
-    game_img = r"""
     
+    cwd = Path.cwd()
+    easy_file = cwd / "easy2.txt"
+    # medium_file = cwd / "medium.txt"
+    hard_file = cwd / "hard.txt"
+    # score_file = cwd / "score.txt"
+
+    game_img = r"""
      ___    _____ _                                 
     ( _ )  |  ___(_)_ __   __ _  ___ _ __ ___      
     / _ \  | |_  | | '_ \ / _` |/ _ \ '__/ __|     
@@ -23,6 +27,7 @@ def main():
     """
     while True:
         print(game_img)
+        print(chr(27) + "[2J" + chr(27) + "[;H")
         print("Welcome to 8 fingers and 2 thumbs game, "
               "where you get to compete with yourself and learn to type faster.")
         print("| Menu: |")
@@ -32,21 +37,22 @@ def main():
         print("4. Show saved test results.")
         print("Press 'q' to quit.")
 
-        choice = input("Choose an option; 1-3")
+        choice = input("Choose an option; 1-3: \n -->")
 
         if choice == "1":
-            typing_test.start_game("easy.txt")
-        if choice == "1":
-            typing_test.start_game("medium.txt")
-        if choice == "1":
-            typing_test.start_game("hard.txt")
-        if choice == "1":
-            typing_test.start_game("score.txt")
+            lines = typing_test.read_file(easy_file)
+            typing_test.start_game(lines)  # Pass the path
+        elif choice == "2":
+            lines = typing_test.read_file(easy_file)
+            typing_test.correct_count(lines)  # Pass the path
+        elif choice == "3":
+            typing_test.start_game(hard_file)  # Pass the path
+        elif choice == "4":
+            typing_test.show_results()  # Pass the path
         elif choice == "q":
             break
         else:
             print("Wrong choice, choose from the options!")
-
 
 if __name__ == "__main__":
     main()

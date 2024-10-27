@@ -1,0 +1,10 @@
+hassan: 0.0
+has: 15.0
+haan: 0.56
+ssan: 0.0
+an: 56.0
+hassan: 0.0
+adnreas: Ordprecision: 0.0%, Teckenprecision: 0.0%
+& C:/Users/hassa/AppData/Local/Microsoft/WindowsApps/python3.12.exe "c:/Users/hassa/OneDrive/Desktop/FullStack/Projectz/Projects through VS CODE/pythonapps/typing/typing_test.py": Ordprecision: 0.0%, Teckenprecision: 0.0%
+& C:/Users/hassa/AppData/Local/Microsoft/WindowsApps/python3.12.exe "c:/Users/hassa/OneDrive/Desktop/FullStack/Projectz/Projects through VS CODE/pythonapps/typing/typing_test.py": Ordprecision: 0.0%, Teckenprecision: 0.0%
+hassetest: Ordprecision: 0.0%, Teckenprecision: 62.5%
