@@ -6,8 +6,9 @@ main.py file for main funtion to run the the 82-Game chatbot
 from pathlib import Path
 import typing_test
 
+
 def main():
-    
+
     cwd = Path.cwd()
     easy_file = cwd / "easy2.txt"
     # medium_file = cwd / "medium.txt"
@@ -24,6 +25,7 @@ def main():
       __) |   | | | '_ \| | | | '_ ` _ \| '_ \/ __| 
      / __/    | | | | | | |_| | | | | | | |_) \__ \ 
     |_____|   |_| |_| |_|\__,_|_| |_| |_|_.__/|___/ 
+    
     """
     while True:
         print(game_img)
@@ -47,12 +49,18 @@ def main():
             typing_test.correct_count(lines)  # Pass the path
         elif choice == "3":
             typing_test.start_game(hard_file)  # Pass the path
+        elif choice == "31":
+            lines = typing_test.read_file(easy_file)
+            letters = typing_test.total_letters(lines)
+            print("Total letters:", letters)
+
         elif choice == "4":
             typing_test.show_results()  # Pass the path
         elif choice == "q":
             break
         else:
             print("Wrong choice, choose from the options!")
+
 
 if __name__ == "__main__":
     main()

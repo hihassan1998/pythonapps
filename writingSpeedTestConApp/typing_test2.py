@@ -13,21 +13,34 @@ def count_words(lines):
         word_per_line.append(words.split())
     return word_per_line
 
+# def count_letters(word_per_line):
+#     """Counts the total occurrences of letters in the list of words."""
+#     total_letter_count = sum(len(word) for word in word_per_line)
+#     return total_letter_count
 
 def words_letters_returned(lines):
     """Counts total words and letters, printing the results."""
     if lines:
         combined_string = ''.join(lines).replace(' ', '').replace("\n", "")
-
+        
         total_words_count = count_words(lines)
         tot_words = sum(len(inner_list) for inner_list in total_words_count)
-
+        
         tot_letters =  len(combined_string)
-
+        
         print(f"Total words count: {tot_words}")
         print(f"Total letters count: {tot_letters}")
     return tot_letters, tot_words
 
+# def total_letters(lines):
+#     """ Counts the letters in all the words in the lines
+#     """
+#     letters_per_lines = []
+#     words_per_line = count_words(lines)
+#     for word in words_per_line:
+#         for letter in word:
+#             letters_per_lines.append(letter)
+#     return letters_per_lines
 
 def total_letters(words_per_line):
     """ Counts the letters in all the words in the lines
@@ -38,28 +51,63 @@ def total_letters(words_per_line):
             letters.append(letter)
     return letters
 
+# def compare_user_input(user_input, lines):
+#     """
+#     Compares user input with the letters from count_letters.
+#     Returns a list of mistakes and the number of occurrences.
+#     """
+#     # Convert user input to a list of letters
+#     user_letters = [char for char in user_input]
+    
+#     # Get the list of letters from count_letters
+#     target_letters = total_letters(lines)
+    
+#     # Initialize the list for mistakes and a dictionary to count occurrences
+#     user_letter_mistakes = []
+#     mistake_counts = {}
+
+#     # Loop through the range of user_letters
+#     for i in range(len(user_letters)):
+#         if i < len(target_letters):  # Ensure we stay within bounds
+#             if user_letters[i] != target_letters[i]:  # Compare each letter
+#                 # Store the mistake letter
+#                 user_letter_mistakes.append(user_letters[i])
+                
+#                 # Count occurrences of the mistake letter
+#                 if user_letters[i] in mistake_counts:
+#                     mistake_counts[user_letters[i]] += 1
+#                 else:
+#                     mistake_counts[user_letters[i]] = 1
+
+#     return user_letter_mistakes, mistake_counts
 
 
 def start_game(lines,tot_letters, tot_words):
     """Function starts the typing game and calculates word and character precision."""
-
+    
     # Get total words and letters before starting the game
     tot_letters, tot_words = words_letters_returned(lines)
-
+    
     result = []  # List to store individual line results
     total_correct_words = 0  # Total number of correctly typed words
     total_words_needed = 0  # Total number of expected words across lines
-
+    
     misspelled_chars = {}
     # total_correct_characters = 0  # Correct characters typed
     total_characters_needed = 0  # Total characters expected across lines
     # total_words_in_file = count_words(lines)
-
+    
     total_mistakes = 0
     mistake_count = 0
-
+    
     for line in lines:
-
+        
+        # print(f"Words-precision för denna rad: {word_pres_till_now:.2f}%")
+        # print(f"Chars-precision för denna rad: {this_char_precision:.2f}%")
+        # print("Felstavade Tecken:")
+        # print("THE VAR THAT STORES THE MISTAKEN LETTERS WITH THEIR COUNTS")
+        # print(misspelled_chars)
+        # print(f"You must type correctly a total of {tot_letters} letters and {tot_words} words to get 100% precision")
         print("----------------------------------")
         
         print("\nSkriv följande rad:")
@@ -149,7 +197,7 @@ def start_game(lines,tot_letters, tot_words):
         print(f"Correctly typed letters count: {correct_letter_count}")
 
         # Calculate precision
-        char_pres_till_now = (correct_letter_count / tot_letters) * 100 if tot_letters > 0 else 0
+        char_precision = (correct_letter_count / tot_letters) * 100 if tot_letters > 0 else 0
 
         # Output wrong letters sorted by frequency
         sorted_wrong_letters = sorted(wrong_letters_count.items(), key=lambda item: (-item[1], item[0]))
@@ -158,7 +206,7 @@ def start_game(lines,tot_letters, tot_words):
         for letter, count in sorted_wrong_letters:
             print(f"   {letter}: {count}")
 
-        print(f"Teckenprecision: {char_pres_till_now:.2f}%")
+        print(f"Teckenprecision: {char_precision:.2f}%")
 
         
         
@@ -168,7 +216,7 @@ def start_game(lines,tot_letters, tot_words):
         # char_pres_till_now = (total_correct_characters / total_characters_needed) * 100 if total_characters_needed > 0 else 0
 
         print(f"Words-precision för föregående rad: {word_pres_till_now:.2f}%")
-        print(f"Chars-precision för föregående rad: {char_pres_till_now:.2f}%")
+        # print(f"Chars-precision för föregående rad: {char_pres_till_now:.2f}%")
 
     # Calculate cumulative precision values
     name = input("Ange ditt namn: ")
@@ -187,10 +235,10 @@ def start_game(lines,tot_letters, tot_words):
     for letter, count in sorted_wrong_letters:
         print(f"   {letter}: {count}")
 
-    print(f"Teckenprecision: {char_pres_till_now:.2f}%")
+    print(f"Teckenprecision: {char_precision:.2f}%")
 
     # Save results to file
-    result.append((name, total_word_precision, char_pres_till_now))
+    result.append((name, total_word_precision, total_char_precision))
     # result.append((name, total_word_precision))
     save_result(result)
 
