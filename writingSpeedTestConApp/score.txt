@@ -1,25 +1,10 @@
-888: Words: 13, Characters: 56, Errors: {'H': 1, 'e': 1, 'l': 2, 'm': 1, 's': 1, 'n': 1, 'a': 1}
-999: Words: 13, Characters: 56, Errors: {'H': 1, 'e': 1, 'l': 2, 'm': 1, 's': 1, 'n': 1, 'a': 1}
-689: Ordprecision: 30.77%, Teckenprecision: 0.00%
-555: Ordprecision: 30.77%, Teckenprecision: 0.00%
-456: Ordprecision: 30.77%, Teckenprecision: 0.00%
-556: Ordprecision: 30.77%, Teckenprecision: 0.00%
-: Ordprecision: 0.00%, Teckenprecision: 0.00%
-& C:/Users/hassa/AppData/Local/Microsoft/WindowsApps/python3.12.exe "c:/Users/hassa/OneDrive/Desktop/FullStack/Projectz/Projects through VS CODE/pythonapps/writingSpeedTestConApp/main.py": Ordprecision: 30.77%, Teckenprecision: 0.00%
-: Ordprecision: 0.00%, Teckenprecision: 0.00%
-booby: Ordprecision: 30.77%, Teckenprecision: 31.82%
-: Ordprecision: 7.69%, Teckenprecision: 22.73%
-llll: Ordprecision: 61.54%, Teckenprecision: 20.45%
-556: Ordprecision: 30.77%, Teckenprecision: 0.00%
-556: Ordprecision: 30.77%, Teckenprecision: 0.00%
-5656: Ordprecision: 30.77%, Teckenprecision: 0.00%
-Ordprecision: 7.69%, Teckenprecision: 4375.00%
-456: Ordprecision: 30.77%, Teckenprecision: 0.00%
-589: Ordprecision: 30.77%, Teckenprecision: 77.27%
-5566& C:/Users/hassa/AppData/Local/Microsoft/WindowsApps/python3.12.exe "c:/Users/hassa/OneDrive/Desktop/FullStack/Projectz/Projects through VS CODE/pythonapps/writingSpeedTestConApp/main.py": Ordprecision: 30.77%, Teckenprecision: 54.55%
-kkol: Ordprecision: 30.77%, Teckenprecision: 77.27%
-225: Ordprecision: 30.77%, Teckenprecision: 77.27%
-booby_lu: Ordprecision: 30.77%, Teckenprecision: 77.27%
-& C:/Users/hassa/AppData/Local/Microsoft/WindowsApps/python3.12.exe "c:/Users/hassa/OneDrive/Desktop/FullStack/Projectz/Projects through VS CODE/pythonapps/writingSpeedTestConApp/main.py": Ordprecision: 30.77%, Teckenprecision: 77.27%
-& C:/Users/hassa/AppData/Local/Microsoft/WindowsApps/python3.12.exe "c:/Users/hassa/OneDrive/Desktop/FullStack/Projectz/Projects through VS CODE/pythonapps/writingSpeedTestConApp/main.py": Ordprecision: 30.77%, Teckenprecision: 77.27%
-hassan: Ordprecision: 30.77%, Teckenprecision: 77.27%
+bobby: Ordprecision: 30.77%, Teckenprecision: 77.27%
+hoho: Ordprecision: 30.77%, Teckenprecision: 77.27%
+correct_answers_record: Ordprecision: 30.77%, Teckenprecision: 77.27%
+hassan: Ordprecision: 30.77%, Teckenprecision: 52.27%
+5566: Ordprecision: 30.77%, Teckenprecision: 77.27%
+correct_ansers: Ordprecision: 30.77%, Teckenprecision: 52.27%
+556: Ordprecision: 30.77%, Teckenprecision: 52.27%
+hassan: Ordprecision: 30.77%, Teckenprecision: 52.27%
+556_correct dickt: Ordprecision: 30.77%, Teckenprecision: 52.27%
+non_go: Ordprecision: 7.69%, Teckenprecision: 25.00%

@@ -4,7 +4,7 @@
 main.py file for main funtion to run the the 82-Game chatbot
 """
 from pathlib import Path
-import typing_test2
+import typing_test
 
 
 def main():
@@ -40,30 +40,28 @@ def main():
         print("Press 'q' to quit.")
 
         choice = input("Choose an option; 1-3: \n -->")
-
         if choice == "1":
-            lines = typing_test2.read_file(easy_file)
-            tot_letters, tot_words = typing_test2.words_letters_returned(lines)
-            typing_test2.start_game(lines,tot_letters, tot_words)  # Pass the path
+            lines = typing_test.read_file(easy_file)
+            tot_letters, tot_words = typing_test.words_letters_returned(lines)
+            typing_test.start_game(lines,tot_letters, tot_words)  # Pass the path
         elif choice == "2":
-            lines = typing_test2.read_file(easy_file)
-            typing_test2.total_letters(lines)  # Pass the path
+            lines = typing_test.read_file(easy_file)
+            typing_test.words_letters_returned(lines)  # Pass the path
         elif choice == "3":
-            lines = typing_test2.read_file(easy_file)
-            total_letters_in_file = 44
-            typing_test2.compare_user_input(lines, total_letters_in_file)
-            # typing_test2.start_game(hard_file)  # Pass the path
+            pass
+            # typing_test.start_game(hard_file)  # Pass the path
         elif choice == "31":
-            lines = typing_test2.read_file(easy_file)
-            letters = typing_test2.total_letters(lines)
+            lines = typing_test.read_file(easy_file)
+            letters = typing_test.total_letters(lines)
             print("Total letters:", letters)
 
         elif choice == "4":
-            typing_test2.show_results()  # Pass the path
+            typing_test.show_results()  # Pass the path
         elif choice == "q":
             break
         else:
             print("Wrong choice, choose from the options!")
+
 
 
 if __name__ == "__main__":
