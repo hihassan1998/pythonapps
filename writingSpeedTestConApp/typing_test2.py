@@ -100,6 +100,17 @@ def update_misspelled_letters(mistake_count_for_line, misspelled_letters_dict):
             misspelled_letters_dict[letter] = 0
         misspelled_letters_dict[letter] += count
 
+def sort_list_of_tuples(data_list, index):
+    """Sorts a list of tuples in descending order based on the specified index."""
+    for current_index, _ in enumerate(data_list):  # Loop through the list with index
+        max_index = current_index  # Assume the first unsorted element is the largest
+        for unsorted_index in range(current_index + 1, len(data_list)):
+            if data_list[unsorted_index][index] > data_list[max_index][index]:  # Compare based on the specified index
+                max_index = unsorted_index  # Update max_index if a larger value is found
+        # Swap the found maximum element with the first unsorted element
+        data_list[current_index], data_list[max_index] = data_list[max_index], data_list[current_index]
+
+
 def sort_dictionary(misspelled_letters_dict):
     """Sorts and displays the misspelled letters in descending order of frequency."""
     # Convert the dictionary to a list of (letter, count) pairs
@@ -108,18 +119,10 @@ def sort_dictionary(misspelled_letters_dict):
         count = misspelled_letters_dict[letter]  # Get the count for the current letter
         misspelled_letters_list.append((letter, count))  # Add the pair to the list
 
-    # Sort the list by mistake count in descending order using a simple selection sort
-    for current_index, _ in enumerate(misspelled_letters_list):  # Loop through the list with index
-        max_index = current_index  # Assume the first unsorted element is the largest
-        for unsorted_index in range(current_index + 1, len(misspelled_letters_list)):  # Loop through the unsorted elements
-            # Compare counts
-            if misspelled_letters_list[unsorted_index][1] > misspelled_letters_list[max_index][1]:
-                max_index = unsorted_index  # Update max_index if a larger count is found
+    sort_list_of_tuples(misspelled_letters_list, 1)
 
-        # Swap the found maximum element with the first unsorted element
-        misspelled_letters_list[current_index], misspelled_letters_list[max_index] = misspelled_letters_list[max_index], misspelled_letters_list[current_index]
     # Print the sorted list
-    print("\nSorted Misspelled Characters (Descending Order of Frequency):")
+    print("\nMisspelled Characters:")
     for letter, count in misspelled_letters_list:
         print(f"{letter}: {count}")
 
@@ -184,10 +187,33 @@ def save_result(result):
         for name, total_word_precision, total_letter_precision in result:
             filehandle.write(f"{name}: Ordprecision: {total_word_precision:.2f}%, Teckenprecision: {total_letter_precision:.2f}%\n")
 
+
 def show_results():
-    """Function reads the results from 'score.txt' file"""
-    print("\nResultat:")
+    """Function reads the results from 'score.txt' file and displays them sorted by word precision."""
+    print("\nResults:")
+    scores = []  # Initialize a list to hold the scores
+
     with open('score.txt', 'r', encoding='utf-8') as file:
-        scores = file.readlines()
-        for score in scores:
-            print(score.strip())
+        for line in file:
+            line = line.strip()  # Strip whitespace from the line
+
+            # Split the line into components
+            try:
+                name, precision_info = line.split(": ", 1)  # Split into name and the rest of the string
+                total_word_precision = precision_info.split(", ")[0]  # Get the word precision part
+                total_letter_precision = precision_info.split(", ")[1]  # Get the letter precision part
+
+                # Extract and convert precision to float
+                word_precision = float(total_word_precision.split(": ")[1][:-1])  # Get the word precision as float
+                letter_precision = float(total_letter_precision.split(": ")[1][:-1])  # Get the letter precision as float
+
+                scores.append((name, word_precision, letter_precision))  # Append to the scores list
+            except ValueError as e:
+                print(f"Error processing line: '{line}'. Expected format: 'name: Ordprecision: xx.xx%, Teckenprecision: yy.yy%'. Error: {e}")
+
+    # Sort the scores based on total word precision (index 1)
+    sort_list_of_tuples(scores, 1)  # Sort by total word precision
+
+    # Display sorted results
+    for name, word_precision, letter_precision in scores:
+        print(f"{name}: Ordprecision: {word_precision:.2f}%, Teckenprecision: {letter_precision:.2f}%")
