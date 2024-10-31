@@ -6,6 +6,7 @@ def read_file(filename:Path):
         lines = filehandle.readlines()
     return lines
 
+
 def count_words(lines):
     """Function returns a list of words from the file, removing specified symbols."""
     word_per_line = []
@@ -13,6 +14,14 @@ def count_words(lines):
         word_per_line.append(words.split())
     return word_per_line
 
+def total_letters(words_per_line):
+    """Gets the letters in all the words in the lines
+    """
+    letters = []
+    for word in words_per_line:
+        for letter in word:
+            letters.append(letter)
+    return letters
 def words_letters_returned(lines):
     """Counts total words and letters, printing the results."""
     combined_string = ''.join(lines).replace(' ', '').replace("\n", "")
@@ -23,16 +32,6 @@ def words_letters_returned(lines):
     tot_letters =  len(combined_string)
 
     return tot_letters, tot_words
-
-
-def total_letters(words_per_line):
-    """Gets the letters in all the words in the lines
-    """
-    letters = []
-    for word in words_per_line:
-        for letter in word:
-            letters.append(letter)
-    return letters
 
 def calculate_word_precision(line, user_input):
     """Calculates word precision and counts correct and incorrect words."""
@@ -173,7 +172,7 @@ def start_game(lines, tot_letters, tot_words):
         # print(f"Misspelled Characters: {sorted_dictionary}")
         sort_dictionary(misspelled_letters_dict)
 
-    name = input("Ange ditt namn: ")
+    name = input("DONE! Kindly, enter your name to save your score: ")
     total_word_precision = ((tot_words - total_wrong_words) / tot_words) * 100
     total_letter_precision = ((tot_letters - total_mistakes) / tot_letters) * 100 if tot_letters > 0 else 0
 
@@ -187,29 +186,25 @@ def save_result(result):
         for name, total_word_precision, total_letter_precision in result:
             filehandle.write(f"{name}: Ordprecision: {total_word_precision:.2f}%, Teckenprecision: {total_letter_precision:.2f}%\n")
 
-
-def show_results():
+def show_results(filename:Path):
     """Function reads the results from 'score.txt' file and displays them sorted by word precision."""
     print("\nResults:")
     scores = []  # Initialize a list to hold the scores
 
-    with open('score.txt', 'r', encoding='utf-8') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()  # Strip whitespace from the line
 
             # Split the line into components
-            try:
-                name, precision_info = line.split(": ", 1)  # Split into name and the rest of the string
-                total_word_precision = precision_info.split(", ")[0]  # Get the word precision part
-                total_letter_precision = precision_info.split(", ")[1]  # Get the letter precision part
+            name, precision_info = line.split(": ", 1)  # Split into name and the rest of the string
+            total_word_precision = precision_info.split(", ")[0]  # Get the word precision part
+            total_letter_precision = precision_info.split(", ")[1]  # Get the letter precision part
 
-                # Extract and convert precision to float
-                word_precision = float(total_word_precision.split(": ")[1][:-1])  # Get the word precision as float
-                letter_precision = float(total_letter_precision.split(": ")[1][:-1])  # Get the letter precision as float
+            # Extract and convert precision to float
+            word_precision = float(total_word_precision.split(": ")[1][:-1])
+            letter_precision = float(total_letter_precision.split(": ")[1][:-1])
 
-                scores.append((name, word_precision, letter_precision))  # Append to the scores list
-            except ValueError as e:
-                print(f"Error processing line: '{line}'. Expected format: 'name: Ordprecision: xx.xx%, Teckenprecision: yy.yy%'. Error: {e}")
+            scores.append((name, word_precision, letter_precision))  # Append to the scores list
 
     # Sort the scores based on total word precision (index 1)
     sort_list_of_tuples(scores, 1)  # Sort by total word precision

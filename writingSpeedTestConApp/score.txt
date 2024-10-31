@@ -1,12 +1,2 @@
-5566: Ordprecision: 30.77%, Teckenprecision: 77.27%
-correct_ansers: Ordprecision: 30.77%, Teckenprecision: 52.27%
-556: Ordprecision: 30.77%, Teckenprecision: 52.27%
-hassan: Ordprecision: 30.77%, Teckenprecision: 52.27%
-556_correct dickt: Ordprecision: 30.77%, Teckenprecision: 52.27%
-non_go: Ordprecision: 7.69%, Teckenprecision: 25.00%
-Correct_with_dict_now good: Ordprecision: 30.77%, Teckenprecision: 52.27%
-try_less_nD_more: Ordprecision: 38.46%, Teckenprecision: 52.27%
-klar_med_modulaering: Ordprecision: 30.77%, Teckenprecision: 52.27%
-Sorted_dict_comp: Ordprecision: 30.77%, Teckenprecision: 52.27%
-lst_one_always: Ordprecision: 0.00%, Teckenprecision: 2.27%
-First_one: Ordprecision: 30.77%, Teckenprecision: 52.27%
+killo: Ordprecision: 0.00%, Teckenprecision: 9.09%
+: Ordprecision: 24.44%, Teckenprecision: 25.43%
