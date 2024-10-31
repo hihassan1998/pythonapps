@@ -4,15 +4,15 @@
 main.py file for main funtion to run the the 82-Game chatbot
 """
 from pathlib import Path
-import typing_test
+import typing_test2
 
 
 def main():
 
     cwd = Path.cwd()
     easy_file = cwd / "easy2.txt"
-    # medium_file = cwd / "medium.txt"
-    # hard_file = cwd / "hard.txt"
+    medium_file = cwd / "medium.txt"
+    hard_file = cwd / "hard.txt"
     # score_file = cwd / "score.txt"
 
     game_img = r"""
@@ -40,29 +40,32 @@ def main():
         print("Press 'q' to quit.")
 
         choice = input("Choose an option; 1-3: \n -->")
+
         if choice == "1":
-            lines = typing_test.read_file(easy_file)
-            tot_letters, tot_words = typing_test.words_letters_returned(lines)
-            typing_test.start_game(lines,tot_letters, tot_words)  # Pass the path
+            lines = typing_test2.read_file(easy_file)
+            tot_letters, tot_words = typing_test2.words_letters_returned(lines)
+            typing_test2.start_game(lines,tot_letters, tot_words)
+
+        elif choice == "2a":
+            lines = typing_test2.read_file(easy_file)
+            typing_test2.words_letters_returned(lines)
         elif choice == "2":
-            lines = typing_test.read_file(easy_file)
-            typing_test.words_letters_returned(lines)  # Pass the path
+            lines = typing_test2.read_file(medium_file)
+            tot_letters, tot_words = typing_test2.words_letters_returned(lines)
+            typing_test2.start_game(lines,tot_letters, tot_words)
+
         elif choice == "3":
-            pass
-            # typing_test.start_game(hard_file)  # Pass the path
-        elif choice == "31":
-            lines = typing_test.read_file(easy_file)
-            letters = typing_test.total_letters(lines)
-            print("Total letters:", letters)
+            lines = typing_test2.read_file(hard_file)
+            tot_letters, tot_words = typing_test2.words_letters_returned(lines)
+            typing_test2.start_game(lines,tot_letters, tot_words)
 
         elif choice == "4":
-            typing_test.show_results()  # Pass the path
+            typing_test2.show_results()
+
         elif choice == "q":
             break
         else:
             print("Wrong choice, choose from the options!")
-
-
 
 if __name__ == "__main__":
     main()

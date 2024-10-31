@@ -55,7 +55,7 @@ def start_game(lines,tot_letters, tot_words):
     print(f"Misspelled Characters: {misspelled_letters_dict}")
     for line in lines:
         print("----------------------------------")
-        print("\nSkriv följande rad:")
+        print("\nType the following line:")
         print(line.strip())  # Display the expected line
         user_input = input("--> ").strip()  # Get the user's input
         
@@ -89,13 +89,7 @@ def start_game(lines,tot_letters, tot_words):
         total_wrong_words += mistaken_word_this_line
         
         word_pres_till_now = ((tot_words - total_wrong_words) / tot_words) * 100
-        # print(f"Total wrong words so far: {total_wrong_words}\n")
-        # print(f"Mistaken words in this line: {mistaken_word_this_line}") # remove mayybe
-        # print("--------------------------------------------------")
-        # Debugging prints
-        # print(f"Results:  {tot_words - mistaken_word_this_line}/{tot_words}")
-        # print(f"Total words in file: {tot_words}")
-        
+
         # check against letters and stoe in a list        
 
         correct_words_string = ' '.join(correct_words_in_line)
@@ -107,8 +101,6 @@ def start_game(lines,tot_letters, tot_words):
         # Initialize counters and storage
         correct_count = 0
         mistake_count = 0
-        correct_count_letters = []
-        # mistake_count_letters = []
         mistake_count_for_line = {}
 
 
