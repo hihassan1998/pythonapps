@@ -1,2 +1,4 @@
-killo: Ordprecision: 0.00%, Teckenprecision: 9.09%
-: Ordprecision: 24.44%, Teckenprecision: 25.43%
+hoobo: Ordprecision: 30.77%, Teckenprecision: 20.45%
+556: Ordprecision: 7.69%, Teckenprecision: 15.91%
+: Ordprecision: 0.00%, Teckenprecision: 0.00%
+save_socre: Ordprecision: 30.77%, Teckenprecision: 50.00%
